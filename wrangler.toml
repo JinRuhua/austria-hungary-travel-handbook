@@ -6,4 +6,3 @@ workers_dev = true
 [assets]
 directory = "."
 binding = "ASSETS"
-include = ["index.html"]
