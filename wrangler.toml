@@ -1,0 +1,9 @@
+name = "austria-hungary-travel-handbook"
+main = "worker.js"
+compatibility_date = "2026-09-09"
+workers_dev = true
+
+[assets]
+directory = "."
+binding = "ASSETS"
+include = ["index.html"]
