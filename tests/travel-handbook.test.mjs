@@ -53,3 +53,25 @@ test('contains the approved daily scope without sensitive fields or interactive 
   assert.doesNotMatch(html, /<(?:input|button)\b[^>]*(?:checkbox|type=["']checkbox)/i);
   assert.doesNotMatch(html, /(?:确认号|预订号|订单号|房间号|证件号|护照号|confirmation\s*(?:number|no\.?|code)|booking\s*(?:number|no\.?|code)|room\s*(?:number|no\.?|code)|document\s*(?:number|no\.?|code)|price|价格)/i);
 });
+
+test('adds the offline travel budget workspace and entry points', () => {
+  assert.match(html, /<a[^>]+href=["']#budget["'][^>]*>Budget<\/a>/i);
+  assert.match(html, /<section[^>]+id=["']budget["']/i);
+  assert.match(html, /id=["']budget-total["']/i);
+  assert.match(html, /data-budget-category=["']Food & Drink["']/i);
+  assert.match(html, /id=["']quick-expense["']/i);
+  assert.match(html, /id=["']expense-sheet["']/i);
+  assert.match(html, /data-add-expense/i);
+  assert.match(html, /data-add-cost/i);
+  assert.match(html, /travel-handbook-budget-v1/);
+  assert.match(html, /localStorage/);
+});
+
+test('defines budget aggregation precedence and local persistence helpers', () => {
+  assert.match(html, /window\.TravelBudget/);
+  assert.match(html, /calculateSummary\s*[:=]\s*function|function\s+calculateSummary/);
+  assert.match(html, /saveState\s*[:=]\s*function|function\s+saveState/);
+  assert.match(html, /linked|bookingId/);
+  assert.match(html, /convertedAmount|exchangeRate/);
+  assert.match(html, /Actual Expense|actual expense|actualAmount/i);
+});
