@@ -83,3 +83,11 @@ test('keeps budget setup compact and booking costs separate from daily spending'
   assert.match(html, /bookingOnly|bookingCost/i);
   assert.match(html, /total\.textContent\s*=\s*formatMoney\(summary\.spent/);
 });
+
+test('shows editable card costs, allocates stays by night, and preserves original currency values', () => {
+  assert.match(html, /data-booking-days/);
+  assert.match(html, /Edit cost/);
+  assert.match(html, /bookingOnly.*bookingDays|bookingDays.*bookingOnly/i);
+  assert.match(html, /bookingDays\.length/);
+  assert.match(html, /originalCurrency|currencyRates|convertedAmount/);
+});
