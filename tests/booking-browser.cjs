@@ -11,6 +11,9 @@ const path = require('node:path');
     const errors = [];
     page.on('pageerror', e => errors.push(e.message));
     await page.goto(pathToFileURL(path.resolve(__dirname,'../index.html')).href);
+    // This suite exercises user entry from an empty ledger; seeded public costs have their own suite.
+    await page.evaluate(()=>localStorage.setItem('travel-handbook-budget-v1',JSON.stringify({...TravelBudget.defaultState(),confirmedCostsRevision:'2026-09-11'})));
+    await page.reload();
     const hotel = page.locator('#bookings .card').filter({hasText:'Hotel Villa Carlton'});
     const flight = page.locator('#bookings .card').filter({hasText:'CA719 |'});
     const form = page.locator('#expense-form');
@@ -51,7 +54,7 @@ const path = require('node:path');
     await page.getByRole('button',{name:'Save budget',exact:true}).click();
     assert.match(await page.locator('#budget-total').innerText(),/1,050\.00/);
     assert.equal(await page.locator('#expense-form [name="amount"]').evaluate(el=>getComputedStyle(el).fontSize),'16px');
-    await page.evaluate(()=>localStorage.setItem('travel-handbook-budget-v1',JSON.stringify({version:1,baseCurrency:'EUR',bookingCosts:[],expenses:[
+    await page.evaluate(()=>localStorage.setItem('travel-handbook-budget-v1',JSON.stringify({version:1,confirmedCostsRevision:'2026-09-11',baseCurrency:'EUR',bookingCosts:[],expenses:[
       {id:'old-hotel',name:'Hotel Villa Carlton',amount:300,currency:'EUR',category:'Accommodation',dayId:'10/01',activityId:''},
       {id:'old-flight',name:'CA719 | Beijing → Budapest',amount:600,currency:'EUR',category:'Intercity Transport',dayId:'10/01',activityId:''},
       {id:'lunch',name:'Lunch',amount:20,currency:'EUR',category:'Food & Drink',dayId:'10/01'}

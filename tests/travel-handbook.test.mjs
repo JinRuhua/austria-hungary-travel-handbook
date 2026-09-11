@@ -45,7 +45,7 @@ test('contains the approved daily scope without sensitive fields or interactive 
   for (const item of [
     'Buda Castle', 'Fisherman', 'Central Market', 'Parliament', 'Shoes', 'St. Stephen',
     'St. Wolfgang', 'Schafberg', 'Wolfgangsee', 'Hallstatt', 'Königssee', 'Salzburg',
-    'Schönbrunn', 'Vienna', 'Airport', 'CONFIRMED', 'TICKET TO BUY', 'RESERVATION NEEDED', 'CEST', 'CST',
+    'Schönbrunn', 'Vienna', 'Airport', 'CONFIRMED', 'TICKET ISSUED', 'RESERVATION NEEDED', 'CEST', 'CST',
   ]) {
     assert.match(html, new RegExp(item.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'));
   }
