@@ -140,26 +140,6 @@
     "qaCell": 7
   },
   {
-    "id": "stephansdom",
-    "day": "10/07",
-    "photo": 37288831,
-    "place": "St. Stephen's Cathedral, Vienna",
-    "source": "https://www.pexels.com/photo/st-stephen-s-cathedral-under-warm-evening-light-37288831/",
-    "sourceType": "licensed_photo",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
-    "retrieved": "2026-09-11",
-    "downloadUrl": "https://images.pexels.com/photos/37288831/pexels-photo-37288831.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "width": 507,
-    "height": 760,
-    "bytes": 46818,
-    "visualEvidence": "St. Stephen’s Cathedral in Vienna with its patterned roof and sunlit Gothic tower",
-    "embedded": true,
-    "subjectVerified": true,
-    "qaEvidence": "docs/qa/photo-contact-sheet.webp",
-    "qaCell": 8
-  },
-  {
     "id": "schonbrunn",
     "day": "10/08",
     "photo": 35831003,
@@ -218,5 +198,21 @@
     "subjectVerified": true,
     "qaEvidence": "docs/qa/photo-contact-sheet.webp",
     "qaCell": 11
+  },
+  {
+    "id": "prater",
+    "day": "10/07",
+    "photo": 35400270,
+    "place": "Wiener Riesenrad",
+    "source": "https://www.pexels.com/photo/wiener-riesenrad-at-sunset-in-vienna-austria-35400270/",
+    "sourceType": "licensed_photo",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "retrieved": "2026-09-15",
+    "width": 507,
+    "height": 760,
+    "bytes": 40244,
+    "embedded": true,
+    "qaEvidence": "docs/qa/prater.webp"
   }
 ]

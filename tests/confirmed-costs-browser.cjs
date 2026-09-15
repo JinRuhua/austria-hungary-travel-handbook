@@ -29,7 +29,7 @@ const path = require('node:path');
       }
       assert.match(await page.locator('[data-rail-cost="rail-2026-10-03"]').innerText(),/145\.00/);
       assert.match(await page.locator('[data-rail-cost="rail-2026-10-07"]').innerText(),/39\.80/);
-      for(const day of ['10/03','10/07']) assert.equal(await page.locator(`[data-route-day="${day}"] .badge`).innerText(),'TICKET ISSUED');
+      for(const day of ['10/03','10/07']) assert.equal(await page.locator(`[data-route-day="${day}"] li`).filter({has: page.locator('[data-rail-cost]')}).locator('.badge').innerText(),'TICKET ISSUED');
       assert.doesNotMatch(await page.locator('#todo').innerText(),/Buy.*train ticket/);
       assert.match(await page.locator('#budget-total').innerText(),/3,629\.64/);
     };
